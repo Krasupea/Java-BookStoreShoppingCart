@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import sun.jvm.hotspot.StackTrace;
+
 import java.util.ArrayList;
 import javax.inject.Inject;
 
@@ -28,6 +30,15 @@ public class ShoppingCart {
    cartItem = cartItems.get(iItemIndex);
   }
   return cartItem;
+ }
+
+ public void deleteCartItem(int index) {
+  try {
+   cartItems.remove(index);
+  }
+  catch (IndexOutOfBoundsException e) {
+   e.printStackTrace();
+  }
  }
 
  public ArrayList<CartItem> getCartItems() {
